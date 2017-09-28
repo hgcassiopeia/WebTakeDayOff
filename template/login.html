@@ -1,3 +1,15 @@
-<div class="container">
-  <h1>Login</h1>
+<div class="container login-div" ng-controller="loginController">
+        <h2>LOG-IN</h2>
+        <form class="login-form" action="/">
+            <div class="form-group log-form-grp">
+                <label for="usr">Username:</label>
+                <input type="text" class="form-control" id="usr" ng-model="username">
+
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd" ng-model="password"> <br />
+
+                <button type="button" class="btn btn-info" ng-click="submit()">Login</button>
+                <button type="button" class="btn btn-info" ng-click="goToRegister()">Register</button>
+            </div>
+        </form>
 </div>
