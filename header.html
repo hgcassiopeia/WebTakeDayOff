@@ -1,0 +1,22 @@
+<div class="navbar navbar-default navbar-static-top">
+  <div class="constainer">
+    <div ng-class="{ active: isActive('/')}" class="current-menu-item navbar-brand"><a href="#!/">Logo</a></div>
+
+    <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+      <div class="collapse navbar-collapse navHeaderCollapse">
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 50px">
+              <li ng-class="{ active: isActive('/export')}"><a href="#!/export"><i class="glyphicon glyphicon-user"></i> Username</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 50px">
+              <li ng-class="{ active: isActive('/')}"><a href="#">Request</a></li>
+              <li ng-class="{ active: isActive('/result')}"><a href="#!/result">Result</a></li>
+              <li ng-class="{ active: isActive('/export')}"><a href="#!/export">Export</a></li>
+        </ul>
+      </div>
+  </div>
+</div>
