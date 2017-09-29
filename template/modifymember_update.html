@@ -1,0 +1,75 @@
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+    #divbottom {
+        margin-bottom: 20px auto;
+    }
+
+    #divleft {
+        float: left;
+        clear: both;
+    }
+
+    #divright {
+        float: left;        
+        clear: right;
+    }
+</style>
+
+
+<div class="container">
+    <fieldset style=" margin-left: 50px; margin-top: 10px; border-style:solid; margin-right:20px;">
+        <legend>MODIFY MEMBER (UPDATE)</legend>
+
+        
+            <div class="dropdown" >
+                <div style="margin-right:50px;">
+                    <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">
+                        -- Select Member --
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">ชื่อคนในทีม1</a></li>
+                        <li><a href="#">ชื่อคนในทีม2</a></li>
+                        <li><a href="#">ชื่อคนในทีม3</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        <div id="divleft">
+            <fieldset style="margin-top:100px; margin-left:50px; margin-right:350px;">
+                <legend>Information</legend>
+                <p>First Name : <!--แสดงชื่อของคนที่เลือกไว้ในdropdown--></p>
+                <p>Last Name : <!--แสดงนามสกุลของคนที่เลือกไว้ในdropdown--></p>
+                <p>E-MAIL : <!--แสดงe-mailของคนที่เลือกไว้ในdropdown--></p>
+            </fieldset>
+        </div>
+
+        <div id="divright">
+            <fieldset style="margin-top:100px; margin-left:50px;" >
+                <legend>Team</legend>
+                <input type="radio" name="team" value="erp"> ERP<br>
+                <input type="radio" name="team" value="ebs"> EBS<br>
+                <input type="radio" name="team" value="seibel"> Seibel<br>
+                <input type="radio" name="team" value="depops"> DevOps<br>
+                <input type="radio" name="team" value="b2b"> Seibel<br>
+                <input type="radio" name="team" value="testteam"> Test Team
+            </fieldset>
+
+        </div>
+
+    </fieldset>
+
+    <div id="divbottom" style="margin-bottom:5px;">
+        <center>
+            <!--กด save จะอัพเดทข้อมูลในดาต้าเบส-->
+            <input type="button" class="btn" value="Save" style="margin-right:80px; margin-top:150px;">
+            <!--พอกด cancel จะลบข้อมูลที่ใส่ไว้-->
+            <input type="reset" class="btn" value="Cancel" style="margin-top:150px;">
+        </center>
+    </div>
+
+</div>
