@@ -1,0 +1,42 @@
+.regis-form{
+	width: 500px;
+}
+.position-form{
+	width: 500px;
+}
+.info-form{
+	width: 500px;
+}
+.team-form{
+	width: 500px;
+}
+
+.regis-grp{
+	height:300px;
+}
+.position-grp{
+	height:300px;
+}
+.info-grp{
+	height:300px;
+}
+.team-grp{
+	height:300px;
+}
+
+.save-regis{
+	justify-content: center;
+	display: flex;
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.regis-row{
+	justify-content: center;
+	display: flex;
+}
+
+.regis-head{
+	margin-bottom:50px;
+}
+

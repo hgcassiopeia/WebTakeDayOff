@@ -1,63 +1,41 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<style type="text/css">
-    #divleft {
-        float: left;
-        clear:both;
-    }
-
-    #divright {
-        float: right;
-        clear:right;
-     }
-
-    #divbottom {
-        position: fixed;
-        bottom: 15px;
-        width: 1000px;
-        margin: 0px auto;
-        
-    }
-</style>
-
 <div class="container">
-  <h1>Register</h1>
-    <div class="form-group" id="divleft">
-        <fieldset style="height: 200px; width: 480px; margin-left: 50px; margin-top: 10px; border-style:solid; margin-right:20px;">
-            <legend>USERNAME/PASSWORD</legend>
+  <h1 class="regis-head">Register</h1>
+    <div class="regis-row row">
+		<form class="regis-form col-md-6">
+			<div class="form-group regis-grp">
+	  
+				<legend>USERNAME/PASSWORD</legend>
 
-            <p style="margin-left:40px; ">
-                <label for="usr">Userame:</label>
-                <input type="text" class="form-control" id="usr" style="width:250px;">
-            </p>
+				<p style="margin-left:40px; ">
+					<label for="usr">Userame:</label>
+					<input type="text" class="form-control" id="usr" style="width:250px;">
+				</p>
 
-            <p style="margin-left:40px; margin-top:5px;">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" style="width:250px;">
-            </p>
+				<p style="margin-left:40px; margin-top:5px;">
+					<label for="pwd">Password:</label>
+					<input type="password" class="form-control" id="pwd" style="width:250px;">
+				</p>
 
-        </fieldset>
-    </div>
+			</div>
+		</form>
 
-    <div id="divright">
-        <fieldset style="height: 200px; width: 480px; margin-left: 50px; margin-top: 10px; border-style:solid; margin-right:20px;">
-            <legend>POSITION</legend>
+		<form class="position-form col-md-6">
+			<div class="form-group position-grp">
+				<legend>POSITION</legend>
 
-            <p style="text-align:center; color:red;">Must be identify yourself correctly !</p>
-            <p style="margin-left:40px; margin-top:20px;">
-                <input type="radio" name="position" value="senior manager"> Senior manager<br>
-                <input type="radio" name="position" value="manager"> Manager<br>
-                <input type="radio" name="position" value="staff"> Staff
-            </p>
-        </fieldset>
-    </div>
-       
-
-
-    <div class="form-group" id="divleft">
-        <fieldset style="height: 260px; width: 480px; margin-left: 50px; margin-top: 10px; border-style:solid; margin-right:20px;">
+				<p style="text-align:center; color:red;">Must be identify yourself correctly !</p>
+				<p style="margin-left:40px; margin-top:20px;">
+					<input type="radio" name="position" value="senior manager"> Senior manager<br>
+					<input type="radio" name="position" value="manager"> Manager<br>
+					<input type="radio" name="position" value="staff"> Staff
+				</p>
+			</div>
+		</form>
+	</div>
+    
+	<div class="regis-row row">
+		<form class="info-form col-md-6">
+		<div class="form-group info-grp">
             <legend>INFORMATION</legend>
 
             <p style="margin-left:40px; margin-top:5px;">
@@ -72,32 +50,28 @@
                 <label for="email">E-MAIL :</label>
                 <input type="email" class="form-control name="email" style="width:250px;" />
             </p>
-        </fieldset>
-    </div>
-    
-    <br />
-    
-    <div id="divright" >
-        <fieldset style="height: 260px; width: 480px; margin-left: 50px; margin-top: 10px; border-style:solid; margin-right:20px;">
-            <legend>TEAM</legend>
-            <p style="text-align:center; color:red;">Must be identify yourself correctly !</p>
-            <p style="margin-left:40px" ;margin-top:20px;">
-                <input type="radio" name="team" value="erp"> ERP<br>
-                <input type="radio" name="team" value="ebs"> EBS<br>
-                <input type="radio" name="team" value="seibel"> Seibel<br>
-                <input type="radio" name="team" value="depops"> DevOps<br>
-                <input type="radio" name="team" value="b2b"> Seibel<br>
-                <input type="radio" name="team" value="testteam"> Test Team
+		</div>
+		</form>
+		
+		<form class="team-form col-md-6">
+			<div class="form-group team-grp">
+				<legend>TEAM</legend>
+				<p style="text-align:center; color:red;">Must be identify yourself correctly !</p>
+				<p style="margin-left:40px" ;margin-top:20px;">
+					<input type="radio" name="team" value="erp"> ERP<br>
+					<input type="radio" name="team" value="ebs"> EBS<br>
+					<input type="radio" name="team" value="seibel"> Seibel<br>
+					<input type="radio" name="team" value="depops"> DevOps<br>
+					<input type="radio" name="team" value="b2b"> Seibel<br>
+					<input type="radio" name="team" value="testteam"> Test Team
 
-            </p>
-        </fieldset>
-        
-    </div>
-
-    <div id="divbottom" >
-        <center>
+				</p>
+			</div>
+		</form>
+	</div>
+	
+    <div class="save-regis">
             <input type="submit" class="btn btn-info" value="Submit">
-        </center>
     </div>    
 
 </div>
