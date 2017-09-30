@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="registerController">
   <h1 class="regis-head">Register</h1>
     <div class="regis-row row">
 		<form class="regis-form col-md-6">
@@ -8,12 +8,12 @@
 
 				<p style="margin-left:40px; ">
 					<label for="usr">Userame:</label>
-					<input type="text" class="form-control" id="usr" style="width:250px;">
+					<input type="text" class="form-control" id="usr" style="width:250px;" ng-model="regisusername">
 				</p>
 
 				<p style="margin-left:40px; margin-top:5px;">
 					<label for="pwd">Password:</label>
-					<input type="password" class="form-control" id="pwd" style="width:250px;">
+					<input type="password" class="form-control" id="pwd" style="width:250px;" ng-model="regispass">
 				</p>
 
 			</div>
@@ -71,7 +71,7 @@
 	</div>
 	
     <div class="save-regis">
-            <input type="submit" class="btn btn-info" value="Submit">
+            <input type="submit" class="btn btn-info" value="Submit" ng-click="registerSubmit()">
     </div>    
 
 </div>

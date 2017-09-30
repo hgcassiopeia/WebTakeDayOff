@@ -50,3 +50,12 @@ myApp.controller('loginController',function($rootScope,$scope,$location){
     }
   }
 });
+
+myApp.controller('registerController',function($scope){
+	$scope.registerSubmit = function(){
+		var regis_username = $scope.regisusername;
+		var regis_pass = $scope.regispass;
+		console.log(regis_username);
+		console.log(regis_pass);
+	}
+});
