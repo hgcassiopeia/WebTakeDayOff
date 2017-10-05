@@ -1,4 +1,6 @@
 var myApp = angular.module('app',['ui.router','ngMaterial','ngMessages']);
+var baseurl = angular.element('meta[name="baseUrl"]').attr('content');
+// console.log(baseurl);
 myApp.config(function($stateProvider,$urlRouterProvider){
   $urlRouterProvider.otherwise('/');
   $stateProvider
@@ -30,7 +32,7 @@ myApp.controller('formController',function($scope){
   this.isOpen = false;
 });
 
-myApp.controller('loginController',function($rootScope,$scope,$location){
+myApp.controller('loginController',function($rootScope,$scope,$location,indexService){
 
   $rootScope.checkPage = function(){
     $rootScope.location = $location;
@@ -41,13 +43,18 @@ myApp.controller('loginController',function($rootScope,$scope,$location){
   }
 
   $scope.submit = function(){
-    var uname = $scope.username;
-    var pword =  $scope.password;
-    if($scope.username == 'admin' && $scope.password == 'admin'){
-      $location.path('/request');
-    }else{
-      alert('Wrong User Password')
-    }
+    console.log($scope.form)
+    indexService.loginService($scope.form).success(function($data){
+        var getData = angular.extend($data);
+        console.log(getData);
+    });
+    // var uname = $scope.username;
+    // var pword =  $scope.password;
+    // if($scope.username == 'admin' && $scope.password == 'admin'){
+    //   $location.path('/request');
+    // }else{
+    //   alert('Wrong User Password')
+    // }
   }
 });
 
