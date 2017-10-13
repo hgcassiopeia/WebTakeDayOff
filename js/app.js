@@ -58,11 +58,13 @@ myApp.controller('loginController',function($rootScope,$scope,$location,indexSer
   }
 });
 
-myApp.controller('registerController',function($scope){
+myApp.controller('registerController',function($scope,indexService){
 	$scope.registerSubmit = function(){
-		var regis_username = $scope.regisusername;
-		var regis_pass = $scope.regispass;
-		console.log(regis_username);
-		console.log(regis_pass);
+    console.log($scope.form);
+    indexService.registerService($scope.form).success(function(){
+        console.log('Insert success')
+        // var getData = angular.extend($data);
+        // console.log(getData);
+    });
 	}
 });

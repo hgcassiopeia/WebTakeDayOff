@@ -1,11 +1,12 @@
 <?php
-  $_POST = json_decode(file_get_contents('php://input'),TRUE);
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json; charset=utf-8');
+
+  include 'connectdb.php';
+
+  $postData = file_get_contents("php://input")
+  print_r($postData)
+  $_POST = json_decode($postData,TRUE);
   print_r($_POST)
-  $resp['status'] = 'error';
-  // if($_POST['username'] == 'admin' && $_POST['password'] == 'admin'){
-  //     $res['status'] = 'success';
-  // }
-  //
-  // $result = json_encode($res);
-  // echo $result;
+
 ?>

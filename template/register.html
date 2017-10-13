@@ -3,17 +3,17 @@
     <div class="regis-row row">
 		<form class="regis-form col-md-6">
 			<div class="form-group regis-grp">
-	  
+
 				<legend>USERNAME/PASSWORD</legend>
 
 				<p style="margin-left:40px; ">
 					<label for="usr">Userame:</label>
-					<input type="text" class="form-control" id="usr" style="width:250px;" ng-model="regisusername">
+					<input type="text" class="form-control" id="usr" style="width:250px;" ng-model="form.regisusername">
 				</p>
 
 				<p style="margin-left:40px; margin-top:5px;">
 					<label for="pwd">Password:</label>
-					<input type="password" class="form-control" id="pwd" style="width:250px;" ng-model="regispass">
+					<input type="password" class="form-control" id="pwd" style="width:250px;" ng-model="form.regispass">
 				</p>
 
 			</div>
@@ -25,14 +25,14 @@
 
 				<p style="text-align:center; color:red;">Must be identify yourself correctly !</p>
 				<p style="margin-left:40px; margin-top:20px;">
-					<input type="radio" name="position" value="senior manager"> Senior manager<br>
-					<input type="radio" name="position" value="manager"> Manager<br>
-					<input type="radio" name="position" value="staff"> Staff
+					<input type="radio" name="position" value="1" ng-model="form.positType"> Senior manager<br>
+					<input type="radio" name="position" value="2" ng-model="form.positType"> Manager<br>
+					<input type="radio" name="position" value="3" ng-model="form.positType"> Staff
 				</p>
 			</div>
 		</form>
 	</div>
-    
+
 	<div class="regis-row row">
 		<form class="info-form col-md-6">
 		<div class="form-group info-grp">
@@ -40,38 +40,37 @@
 
             <p style="margin-left:40px; margin-top:5px;">
                 <label for="firstname">First Name :</label>
-                <input type="text" class="form-control" name="firstname" style="width:250px;">
+                <input type="text" class="form-control" name="firstname" ng-model="form.fname" style="width:250px;">
             </p>
             <p style="margin-left:40px; margin-top:5px;">
                 <label for="lastname">Last Name :</label>
-                <input type="text" class="form-control" name="lastname" style="width:250px;" />
+                <input type="text" class="form-control" name="lastname" ng-model="form.lname" style="width:250px;" />
             </p>
             <p style="margin-left:40px; margin-top:5px;">
                 <label for="email">E-MAIL :</label>
-                <input type="email" class="form-control name="email" style="width:250px;" />
+                <input type="email" class="form-control" name="email" ng-model="form.email" style="width:250px;" />
             </p>
 		</div>
 		</form>
-		
+
 		<form class="team-form col-md-6">
 			<div class="form-group team-grp">
 				<legend>TEAM</legend>
 				<p style="text-align:center; color:red;">Must be identify yourself correctly !</p>
-				<p style="margin-left:40px" ;margin-top:20px;">
-					<input type="radio" name="team" value="erp"> ERP<br>
-					<input type="radio" name="team" value="ebs"> EBS<br>
-					<input type="radio" name="team" value="seibel"> Seibel<br>
-					<input type="radio" name="team" value="depops"> DevOps<br>
-					<input type="radio" name="team" value="b2b"> Seibel<br>
-					<input type="radio" name="team" value="testteam"> Test Team
+				<p style="margin-left:40px ;margin-top:20px;">
+					<input type="radio" name="team" value="1" ng-model="form.teamId"> ERP<br>
+					<input type="radio" name="team" value="2" ng-model="form.teamId"> EBS<br>
+					<input type="radio" name="team" value="3" ng-model="form.teamId"> Seibel<br>
+					<input type="radio" name="team" value="4" ng-model="form.teamId"> DevOps<br>
+					<input type="radio" name="team" value="5" ng-model="form.teamId"> Test Team
 
 				</p>
 			</div>
 		</form>
 	</div>
-	
+
     <div class="save-regis">
             <input type="submit" class="btn btn-info" value="Submit" ng-click="registerSubmit()">
-    </div>    
+    </div>
 
 </div>
