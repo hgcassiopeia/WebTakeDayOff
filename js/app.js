@@ -45,8 +45,8 @@ myApp.controller('loginController',function($rootScope,$scope,$location,indexSer
   $scope.submit = function(){
     console.log($scope.form)
     indexService.loginService($scope.form).success(function($data){
-        var getData = angular.extend($data);
-        console.log(getData);
+        // var getData = angular.extend($data);
+        console.log($data);
     });
     // var uname = $scope.username;
     // var pword =  $scope.password;
@@ -58,13 +58,16 @@ myApp.controller('loginController',function($rootScope,$scope,$location,indexSer
   }
 });
 
-myApp.controller('registerController',function($scope,indexService){
+myApp.controller('registerController',function($scope,indexService,$location){
 	$scope.registerSubmit = function(){
-    console.log($scope.form);
-    indexService.registerService($scope.form).success(function(){
-        console.log('Insert success')
-        // var getData = angular.extend($data);
-        // console.log(getData);
+    indexService.registerService($scope.form).success(function($data){
+        var getData = angular.extend($data);
+        console.log(getData);
+        if(getData.data == true){
+          $location.path('/');
+        }else{
+          alert('Cannot Register');
+        }
     });
 	}
 });
