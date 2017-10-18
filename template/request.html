@@ -1,4 +1,4 @@
-<div class="container" ng-controller="formController as ctrl">
+<div class="container" ng-controller="requestController">
   <h1>Request</h1>
   <form id="req-form">
     <fieldset class="form-group">
@@ -6,17 +6,18 @@
       <div class="row">
         <div class="col-sm-6">
           <div>Date From : </div>
-          <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+          <md-datepicker ng-model="form.DateFrom" md-placeholder="Enter date"></md-datepicker>
         </div>
         <div class="col-sm-6">
           <div>Date To : </div>
-          <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+          <md-datepicker ng-model="form.DateTo" md-placeholder="Enter date"></md-datepicker>
         </div>
       </div>
       <div class="row">
-        <textarea class="form-control req-input" id="exampleTextarea" rows="5" ng-model="reason"></textarea>
+        <textarea class="form-control req-input" id="exampleTextarea" placeholder="Please Enter Your reason ..."
+        rows="5" ng-model="form.reason"></textarea>
       </div>
-      <button type="button" class="btn btn-info">Button</button>
+      <button type="button" class="btn btn-info" ng-click="requestDayOff()">Button</button>
     </fieldset>
   </form>
 </div>

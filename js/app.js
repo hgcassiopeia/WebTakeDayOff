@@ -42,10 +42,14 @@ myApp.config(function($stateProvider,$urlRouterProvider){
     })
 });
 
-myApp.controller('formController',function($scope){
-  $scope.reason = 'hello';
-  this.myDate = new Date();
-  this.isOpen = false;
+myApp.controller('requestController',function($scope){
+
+  $scope.DateFrom = new Date();
+  $scope.DateTo = new Date();
+
+  $scope.requestDayOff = function(){
+    console.log($scope.form)
+  }
 });
 
 myApp.controller('loginController',function($rootScope,$scope,$location,indexService){
