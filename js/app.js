@@ -39,22 +39,20 @@ myApp.controller('loginController',function($rootScope,$scope,$location,indexSer
   }
 
   $scope.goToRegister = function(){
-    $location.path('/register');
+    $location.path('/request');
   }
 
   $scope.submit = function(){
     console.log($scope.form)
     indexService.loginService($scope.form).success(function($data){
-        // var getData = angular.extend($data);
         console.log($data);
+        var getData = angular.extend($data);
+        if(getData.type != 1 && getData.type != 2){
+          $location.path('/request');
+        }else{
+          alert(getData.status);
+        }
     });
-    // var uname = $scope.username;
-    // var pword =  $scope.password;
-    // if($scope.username == 'admin' && $scope.password == 'admin'){
-    //   $location.path('/request');
-    // }else{
-    //   alert('Wrong User Password')
-    // }
   }
 });
 
