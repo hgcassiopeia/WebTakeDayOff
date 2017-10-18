@@ -16,9 +16,25 @@ myApp.config(function($stateProvider,$urlRouterProvider){
       url: '/request',
       templateUrl: 'template/request.html',
     })
+    .state('viewrequest',{
+      url: '/viewrequest',
+      templateUrl: 'template/view_day_off_request(approve).html',
+    })
     .state('result',{
       url: '/result',
       templateUrl: 'template/result.html',
+    })
+    .state('modmem',{
+      url: '/modmem',
+      templateUrl: 'template/modifymember.html',
+    })
+    .state('modpro',{
+      url: '/modpro',
+      templateUrl: 'template/modifyproject.html',
+    })
+    .state('addpro',{
+      url: '/addpro',
+      templateUrl: 'template/addproject.html',
     })
     .state('export',{
       url: '/export',
@@ -43,16 +59,25 @@ myApp.controller('loginController',function($rootScope,$scope,$location,indexSer
   }
 
   $scope.submit = function(){
-    console.log($scope.form)
     indexService.loginService($scope.form).success(function($data){
-        console.log($data);
         var getData = angular.extend($data);
         if(getData.type != 1 && getData.type != 2){
-          $location.path('/request');
+          localStorage.setItem('profile',JSON.stringify(getData.data));
+          $rootScope.name = getData.data.firstname+' '+getData.data.lastname;
+          $rootScope.positionCheck = getData.data.position_id;
+          if($rootScope.positionCheck == 1){
+            $location.path('/viewrequest');
+          }else{
+            $location.path('/request');
+          }
         }else{
           alert(getData.status);
         }
     });
+  }
+
+  $scope.logout = function(){
+    localStorage.removeItem('profile');
   }
 });
 
@@ -60,7 +85,6 @@ myApp.controller('registerController',function($scope,indexService,$location){
 	$scope.registerSubmit = function(){
     indexService.registerService($scope.form).success(function($data){
         var getData = angular.extend($data);
-        console.log(getData);
         if(getData.data == true){
           $location.path('/');
         }else{
