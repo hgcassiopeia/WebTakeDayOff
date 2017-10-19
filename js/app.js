@@ -42,13 +42,36 @@ myApp.config(function($stateProvider,$urlRouterProvider){
     })
 });
 
-myApp.controller('requestController',function($scope){
+myApp.controller('requestController',function($scope,indexService,$location){
 
   $scope.DateFrom = new Date();
   $scope.DateTo = new Date();
 
+  $scope.checkLogin = function(){
+    $scope.store = JSON.parse(localStorage.getItem('profile'));
+    if($scope.store){
+      $scope.users = $scope.store.id;
+    }else{
+      localStorage.removeItem('profile');
+      $location.path('/');
+    }
+  }
+
   $scope.requestDayOff = function(){
-    console.log($scope.form)
+    if($scope.form){
+      $scope.form.User = $scope.users;
+      // console.log(JSON.stringify($scope.form));
+    }else{
+      $scope.form = "";
+    }
+    indexService.requestService($scope.form).success(function($data){
+        var getData = angular.extend($data);
+        // console.log(JSON.stringify(getData))
+        if(getData.data == true){
+          $scope.form = "";
+        }
+        alert(getData.status)
+    });
   }
 });
 
@@ -60,6 +83,18 @@ myApp.controller('loginController',function($rootScope,$scope,$location,indexSer
 
   $scope.goToRegister = function(){
     $location.path('/request');
+  }
+
+  $scope.checkLogin = function(){
+    $scope.store = JSON.parse(localStorage.getItem('profile'));
+    if($scope.store){
+      $rootScope.name = $scope.store.firstname+' '+$scope.store.lastname;
+      $rootScope.userID = $scope.store.id;
+      $rootScope.positionCheck = $scope.store.position_id;;
+    }else{
+      localStorage.removeItem('profile');
+      $location.path('/');
+    }
   }
 
   $scope.submit = function(){

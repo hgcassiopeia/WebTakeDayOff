@@ -1,5 +1,5 @@
 <div class="navbar navbar-default navbar-static-top" ng-controller="loginController">
-  <div class="constainer">
+  <div class="constainer" ng-init="checkLogin()">
     <div ng-class="{ active: isActive('/')}" class="current-menu-item navbar-brand">Logo</div>
 
     <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
@@ -9,7 +9,7 @@
     </button>
 
       <div ng-if="location.path() != '/register'" class="collapse navbar-collapse navHeaderCollapse">
-        <ul class="nav navbar-nav navbar-right" style="margin-right: 50px">
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 50px; margin-top: 15px">
             <li ng-class="{ active: isActive('/')}">
 					      <i class="glyphicon glyphicon-user"></i> {{name}}
 			      </li>

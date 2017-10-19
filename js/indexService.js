@@ -22,4 +22,15 @@ myApp.service('indexService', function($http){
       return promise;
   };
 
+  this.requestService = function(data){
+      var formData = data;
+      var promise = $http({
+        method: 'POST',
+        url: baseurl + 'php/request.php',
+        data: formData
+      });
+
+      return promise;
+  };
+
 });

@@ -1,4 +1,4 @@
-<div class="container" ng-controller="requestController">
+<div class="container" ng-controller="requestController" ng-init="checkLogin()">
   <h1>Request</h1>
   <form id="req-form">
     <fieldset class="form-group">
@@ -15,8 +15,10 @@
       </div>
       <div class="row">
         <textarea class="form-control req-input" id="exampleTextarea" placeholder="Please Enter Your reason ..."
-        rows="5" ng-model="form.reason"></textarea>
+        rows="5" ng-model="form.Reason"></textarea>
+        <input type="hidden" ng-model="form.User" name="form.User" />
       </div>
+
       <button type="button" class="btn btn-info" ng-click="requestDayOff()">Button</button>
     </fieldset>
   </form>
