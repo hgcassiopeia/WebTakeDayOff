@@ -42,6 +42,16 @@ myApp.config(function($stateProvider,$urlRouterProvider){
     })
 });
 
+myApp.controller('viewRequestController',function($scope,indexService){
+  $scope.getView = function(){
+    indexService.ViewRequestService().success(function($data){
+        var getData = angular.extend($data);
+        console.log(JSON.stringify(getData));
+        $scope.listRequest = getData.data;
+    });
+  }
+});
+
 myApp.controller('requestController',function($scope,indexService,$location){
 
   $scope.DateFrom = new Date();

@@ -33,4 +33,13 @@ myApp.service('indexService', function($http){
       return promise;
   };
 
+  this.ViewRequestService = function(){
+      var promise = $http({
+        method: 'GET',
+        url: baseurl + 'php/viewRequest.php',
+      });
+
+      return promise;
+  };
+
 });

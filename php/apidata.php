@@ -4,6 +4,7 @@ include 'connectdb.php';
 
 $query = "SELECT bu_name, count(*) as no FROM seat GROUP BY bu_name";
 $result = mysqli_query($connect, $query);
+$output = "";
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
