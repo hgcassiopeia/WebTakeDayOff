@@ -62,4 +62,13 @@ myApp.service('indexService', function($http){
       return promise;
   };
 
+  this.ResultService = function(){
+      var promise = $http({
+        method: 'GET',
+        url: baseurl + 'php/result.php',
+      });
+
+      return promise;
+  };
+
 });

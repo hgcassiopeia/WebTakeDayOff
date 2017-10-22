@@ -1,19 +1,7 @@
-
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-<body>
-
-<div class="container">
+<div class="container" ng-controller="resultController" ng-init="getResult()">
   <div>
       <h1>View day off request result</h1>
-  </div>    
+  </div>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -26,32 +14,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr ng-repeat="item in listResult">
+        <td ng-hide="item.status_id == 1">{{item.u_name}}</td>
+        <td ng-hide="item.status_id == 1">{{item.team_name}}</td>
+        <td ng-hide="item.status_id == 1">{{item.reason}}</td>
+        <td ng-hide="item.status_id == 1">{{item.date_from}}</td>
+        <td ng-hide="item.status_id == 1">{{item.date_to}}</td>
+        <td ng-hide="item.status_id == 1">{{item.status}}</td>
       </tr>
     </tbody>
   </table>
-    </body>
-    
 </div>

@@ -42,6 +42,16 @@ myApp.config(function($stateProvider,$urlRouterProvider){
     })
 });
 
+myApp.controller('resultController',function($scope,indexService){
+  $scope.getResult = function(){
+    indexService.ResultService().success(function($data){
+        var getData = angular.extend($data);
+        console.log(JSON.stringify(getData));
+        $scope.listResult = getData.data;
+    });
+  }
+});
+
 myApp.controller('viewRequestController',function($scope,indexService){
 
   $scope.selectedList = {};
@@ -72,7 +82,7 @@ myApp.controller('viewRequestController',function($scope,indexService){
     // console.log(JSON.stringify($scope.approveData))
     indexService.ApproveService($scope.approveData).success(function($data){
         var getData = angular.extend($data);
-        console.log(JSON.stringify($data));
+        // console.log(JSON.stringify($data));
         $scope.getView();
     });
   }
@@ -95,7 +105,7 @@ myApp.controller('viewRequestController',function($scope,indexService){
     // console.log(JSON.stringify($scope.approveData))
     indexService.RejectService($scope.rejectData).success(function($data){
         var getData = angular.extend($data);
-        console.log(JSON.stringify($data));
+        // console.log(JSON.stringify($data));
         $scope.getView();
     });
   }
