@@ -43,13 +43,63 @@ myApp.config(function($stateProvider,$urlRouterProvider){
 });
 
 myApp.controller('viewRequestController',function($scope,indexService){
+
+  $scope.selectedList = {};
+
   $scope.getView = function(){
     indexService.ViewRequestService().success(function($data){
         var getData = angular.extend($data);
-        console.log(JSON.stringify(getData));
+        // console.log(JSON.stringify(getData));
         $scope.listRequest = getData.data;
     });
   }
+
+  $scope.ApproveSubmit = function(){
+
+    $scope.count = [];
+    $scope.approveData = [];
+
+    angular.forEach($scope.listRequest, function(value,key){
+        angular.forEach($scope.selectedList, function (selected, item) {
+                if (selected) {
+                  $scope.count.push(item)
+                  if(key == item){
+                    $scope.approveData.push(value);
+                  }
+                }
+        });
+    });
+    // console.log(JSON.stringify($scope.approveData))
+    indexService.ApproveService($scope.approveData).success(function($data){
+        var getData = angular.extend($data);
+        console.log(JSON.stringify($data));
+        $scope.getView();
+    });
+  }
+
+  $scope.RejectSubmit = function(){
+
+    $scope.count = [];
+    $scope.rejectData = [];
+
+    angular.forEach($scope.listRequest, function(value,key){
+        angular.forEach($scope.selectedList, function (selected, item) {
+                if (selected) {
+                  $scope.count.push(item)
+                  if(key == item){
+                    $scope.rejectData.push(value);
+                  }
+                }
+        });
+    });
+    // console.log(JSON.stringify($scope.approveData))
+    indexService.RejectService($scope.rejectData).success(function($data){
+        var getData = angular.extend($data);
+        console.log(JSON.stringify($data));
+        $scope.getView();
+    });
+  }
+
 });
 
 myApp.controller('requestController',function($scope,indexService,$location){

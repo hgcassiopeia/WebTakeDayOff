@@ -42,4 +42,24 @@ myApp.service('indexService', function($http){
       return promise;
   };
 
+  this.ApproveService = function(checked){
+      var promise = $http({
+        method: 'POST',
+        url: baseurl + 'php/approve.php',
+        data: checked
+      });
+
+      return promise;
+  };
+
+  this.RejectService = function(checked){
+      var promise = $http({
+        method: 'POST',
+        url: baseurl + 'php/reject.php',
+        data: checked
+      });
+
+      return promise;
+  };
+
 });
