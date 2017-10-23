@@ -2,7 +2,7 @@
   include 'connectdb.php';
 
   $_POST = json_decode(file_get_contents("php://input"),TRUE);
-  $resp['sss'] = $_POST;
+
   $reason = (isset($_POST['Reason'])) ? $_POST['Reason'] : null;
   $dateFrom = (isset($_POST['DateFrom'])) ? $_POST['DateFrom'] : null;
   $dateTo = (isset($_POST['DateTo'])) ? $_POST['DateTo'] : null;

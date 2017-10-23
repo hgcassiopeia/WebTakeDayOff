@@ -29,7 +29,7 @@
 
                   <div class="row">
                     <div class="col-sm-6">
-                      <table class="table table-bordered scroll">
+                      <table class="table table-bordered scroll" style="margin-bottom:0">
                         <thead class="add-pro">
                           <tr>
                             <th class="pro-value">Name</th>
@@ -46,16 +46,17 @@
                           </tr>
                         </tbody>
                       </table>
+                      <span style="color:#ff6347">*** Can Scroll See More Team ***</span>
                     </div>
                     <div class="col-sm-6">
                       <label>Type</label>
                       <div class="type">
-                        <input class="choice" type="radio" name="type" value="1"> Get Requirement<br>
-                        <input class="choice" type="radio" name="type" value="2"> Confirm Requirement<br>
-                        <input class="choice" type="radio" name="type" value="3"> Build/Testing (ST/SIT)<br>
-                        <input class="choice" type="radio" name="type" value="4"> Deploy<br>
-                        <input class="choice" type="radio" name="type" value="5"> Vacation Leave<br>
-                        <input class="choice" type="radio" name="type" value="6"> Training
+                        <input class="choice" type="radio" name="type" value="1" ng-model="form.type"> Get Requirement<br>
+                        <input class="choice" type="radio" name="type" value="2" ng-model="form.type"> Confirm Requirement<br>
+                        <input class="choice" type="radio" name="type" value="3" ng-model="form.type"> Build/Testing (ST/SIT)<br>
+                        <input class="choice" type="radio" name="type" value="4" ng-model="form.type"> Deploy<br>
+                        <input class="choice" type="radio" name="type" value="5" ng-model="form.type"> Vacation Leave<br>
+                        <input class="choice" type="radio" name="type" value="6" ng-model="form.type"> Training
                       </div>
                     </div>
                   </div>
@@ -66,7 +67,7 @@
         </div>
 
         <div class="row row-btn">
-          <button type="button" class="btn btn-info" ng-click="">Submit</button>
+          <button type="button" class="btn btn-info" ng-click="addProjectSubmit()">Submit</button>
         </div>
 
     </fieldset>

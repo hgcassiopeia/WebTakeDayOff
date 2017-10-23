@@ -44,19 +44,51 @@ myApp.config(function($stateProvider,$urlRouterProvider){
 //===========================Add Project==========================================//
 myApp.controller('addProjectController',function($scope,indexService){
 
+    $scope.selectedList = {};
+
     $scope.checkLogin = function(){
       $scope.store = JSON.parse(localStorage.getItem('profile'));
       if($scope.store){
         $scope.users = $scope.store;
         indexService.TeamService({'teamId':$scope.users.team_id}).success(function($data){
           var getData = angular.extend($data);
-          console.log(JSON.stringify(getData));
+          // console.log(JSON.stringify(getData));
           $scope.team = getData.data;
         });
       }else{
         localStorage.removeItem('profile');
         $location.path('/');
       }
+    }
+
+    $scope.addProjectSubmit = function(){
+        if($scope.form){
+          $scope.count = [];
+          $scope.addTeam = [];
+
+          angular.forEach($scope.team, function(value,key){
+            angular.forEach($scope.selectedList, function (selected, item) {
+                    if (selected) {
+                      $scope.count.push(item)
+                      if(key == item){
+                        $scope.addTeam.push(value.user_id);
+                        $scope.form.teams = $scope.addTeam;
+                      }
+                    }
+            });
+          });
+          console.log(JSON.stringify($scope.form))
+          indexService.AddProjectService($scope.form).success(function($data){
+                var getData = angular.extend($data);
+                console.log(JSON.stringify(getData));
+                if(getData.data == true){
+                  $scope.form = "";
+                }
+          });
+        }else{
+          $scope.form = "";
+          alert('Please input data');
+        }
     }
 
 });

@@ -81,4 +81,14 @@ myApp.service('indexService', function($http){
       return promise;
   };
 
+  this.AddProjectService = function(project){
+      var promise = $http({
+        method: 'POST',
+        url: baseurl + 'php/addProject.php',
+        data: project
+      });
+
+      return promise;
+  };
+
 });

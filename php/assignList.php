@@ -6,7 +6,7 @@
 
   if($_POST != null){
       $id = $_POST['teamId'];
-      $sql = "SELECT CONCAT(firstname,' ',lastname) as u_name
+      $sql = "SELECT user_id, CONCAT(firstname,' ',lastname) as u_name
               FROM user
               WHERE team_id = '".$id."'";
       $query = mysqli_query($connect,$sql)or die(mysql_error());
@@ -19,7 +19,7 @@
 
         $resp['type'] = 0;
         $resp['data'] = $data;
-        $resp['status'] = 'View Request Data Available';
+        $resp['status'] = 'List Team Data Available';
     }else{
       $resp['status'] = 'Not success'. mysqli_error($connect);
       $resp['data'] = $query;
