@@ -15,7 +15,7 @@
 			      </li>
         </ul>
         <ul class="nav navbar-nav navbar-right" style="margin-right: 50px">
-              <li ng-if="positionCheck==2" ng-class="{ active: isActive('/request')}"><a href="#/request">Request</a></li>
+              <li ng-if="positionCheck!=1" ng-class="{ active: isActive('/request')}"><a href="#/request">Request</a></li>
               <li ng-if="positionCheck!=3" ng-class="{ active: isActive('/viewrequest')}"><a href="#/viewrequest">View Day Off Request</a></li>
               <li ng-if="positionCheck!=1" ng-class="{ active: isActive('/result')}"><a href="#/result">Result</a></li>
               <li ng-if="positionCheck==2" ng-class="{ active: isActive('/modmem')}"><a href="#/modmem">Modify Member</a></li>

@@ -11,7 +11,7 @@
   if($reason == null && $dateFrom == null && $dateTo == null && $user == null){
     $resp['status'] = 'require data';
   }else{
-    $sql = "INSERT INTO request(reason,date_from,date_to,id) VALUES ('".$reason."','".$dateFrom."','".$dateTo."','".$user."')";
+    $sql = "INSERT INTO request(reason,date_from,date_to,id,status_id) VALUES ('".$reason."','".$dateFrom."','".$dateTo."','".$user."','1')";
     $insert = $connect->query($sql)or die(mysql_error());
     if($insert){
       $resp['status'] = 'request success';

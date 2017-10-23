@@ -1,90 +1,56 @@
-﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="container pro-con">
+    <fieldset class="form-group pro-field">
+        <legend style="width:150px">ADD PROJECT</legend>
+        <div class="row">
+          <div class="col-sm-6">
+              <fieldset class="form-group form-info" style="padding-left:50px; padding-top:20px">
+                  <legend>Information</legend>
+                      <div class="row  pro-info">
+                        <label class="col-sm-3" for="projectname">Project Name :</label>
+                        <input class="col-sm-9 pro-name" type="text">
+                      </div>
+                      <div class="row  pro-info">
+                        <div class="col-sm-3">Date From : </div>
+                        <md-datepicker class="col-sm-9 pro-date" ng-model="form.DateFrom" md-placeholder="Enter date"></md-datepicker>
+                      </div>
+                      <div class="row  pro-info">
+                        <div class="col-sm-3">Date To : </div>
+                        <md-datepicker class="col-sm-9 pro-date" ng-model="form.DateTo" md-placeholder="Enter date"></md-datepicker>
+                      </div>
+              </fieldset>
+          </div>
 
-<style type="text/css">
-    #divbottom {
-        margin-bottom: 20px auto;
-    }
+          <div class="col-sm-6">
+              <fieldset class="form-group form-info" style="padding-left:50px">
+                  <legend style="width:150px">Assign & Type</legend>
+                  <div class="dropdown">
+                          <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">
+                              -- Select Member --
+                              <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">ชื่อคนในทีม1</a></li>
+                              <li><a href="#">ชื่อคนในทีม2</a></li>
+                              <li><a href="#">ชื่อคนในทีม3</a></li>
+                          </ul>
 
-    #divleft {
-        float: left;
-        clear: both;
-    }
-
-    #divright {
-        float: left;
-        clear: right;
-    }
-</style>
-
-
-
-<div class="container">
-    <h2>ADD PROJECT</h2>
-    <fieldset>
-
-
-
-        <div id="divleft">
-            <fieldset style="margin-top:50px; margin-left:50px; margin-right:350px;">
-                <legend>Information</legend>
-                <div class="form-group">
-                    <label for="projectname">Project Name :</label>
-                    <input type="text" class="form-control" id="usr">
-                </div>
-                <!--Date From ใส่ปฎิธินให้หน่อยน้า-->
-                <div class="form-group">
-                    <label for="datefrom">Date From :</label>
-                    <input type="text" class="form-control" id="usr">
-                </div>
-                <!--Date To ใส่ปฎิธินให้หน่อยน้า-->
-                <div class="form-group">
-                    <label for="dateto">Date To :</label>
-                    <input type="text" class="form-control" id="usr">
-                </div>
-
-
-            </fieldset>
-        </div>
-
-        <div id="divright">
-            <fieldset style="margin-top:50px; margin-left:50px;">
-                <legend>Assign & Type</legend>
-                <div class="dropdown">
-                    <div style="margin-right:50px;">
-                        <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">
-                            -- Select Member --
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">ชื่อคนในทีม1</a></li>
-                            <li><a href="#">ชื่อคนในทีม2</a></li>
-                            <li><a href="#">ชื่อคนในทีม3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <br />
-                <br />
-                <input type="radio" name="type" value="Get Requirement"> Get Requirement<br>
-                <input type="radio" name="type" value="Confirm Requirement"> Confirm Requirement<br>
-                <input type="radio" name="type" value="Build/Testing"> Build/Testing (ST/SIT)<br>
-                <input type="radio" name="type" value="Deploy"> Deploy<br>
-                <input type="radio" name="type" value="Vacation"> Vacation Leave<br>
-                <input type="radio" name="type" value="Training"> Training
-
-            </fieldset>
+                  </div>
+                  <div class="type">
+                    <input class="choice" type="radio" name="type" value="1"> Get Requirement<br>
+                    <input class="choice" type="radio" name="type" value="2"> Confirm Requirement<br>
+                    <input class="choice" type="radio" name="type" value="3"> Build/Testing (ST/SIT)<br>
+                    <input class="choice" type="radio" name="type" value="4"> Deploy<br>
+                    <input class="choice" type="radio" name="type" value="5"> Vacation Leave<br>
+                    <input class="choice" type="radio" name="type" value="6"> Training
+                  </div>
+              </fieldset>
+          </div>
 
         </div>
 
+        <div class="row row-btn">
+          <button type="button" class="btn btn-info" ng-click="">Submit</button>
+        </div>
     </fieldset>
 
-        <div id="divbottom" style="margin-bottom:5px;">
-            <center>
-                <!--กด save จะอัพเดทข้อมูลในดาต้าเบส-->
-                <input type="submit" class="btn" value="submit" style="margin-right:80px; margin-top:50px;">
-            </center>
-        </div>
-
-   
 </div>

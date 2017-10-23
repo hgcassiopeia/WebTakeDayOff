@@ -1,0 +1,28 @@
+.pro-con{
+  padding: 0;
+}
+.pro-field{
+  margin: 0;
+}
+.row-btn{
+  margin-top: 20px;
+  text-align: center;
+}
+.pro-date{
+  padding: 0;
+}
+.pro-name{
+  width: 200px;
+}
+.pro-info{
+  margin-bottom: 15px
+}
+.form-info{
+  height: 300px
+}
+.type{
+  margin-top: 20px
+}
+.choice{
+  margin-right: 10px!important;
+}
