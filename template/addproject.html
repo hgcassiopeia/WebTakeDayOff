@@ -1,21 +1,24 @@
-<div class="container pro-con">
+<div class="container pro-con" ng-controller="addProjectController" ng-init="checkLogin()">
     <fieldset class="form-group pro-field">
+
         <legend style="width:150px">ADD PROJECT</legend>
+
         <div class="row">
+
           <div class="col-sm-6">
               <fieldset class="form-group form-info" style="padding-left:50px; padding-top:20px">
                   <legend>Information</legend>
                       <div class="row  pro-info">
                         <label class="col-sm-3" for="projectname">Project Name :</label>
-                        <input class="col-sm-9 pro-name" type="text">
+                        <input class="col-sm-9 pro-name" type="text" ng-model="form.ProName">
                       </div>
                       <div class="row  pro-info">
                         <div class="col-sm-3">Date From : </div>
-                        <md-datepicker class="col-sm-9 pro-date" ng-model="form.DateFrom" md-placeholder="Enter date"></md-datepicker>
+                        <md-datepicker class="col-sm-9 pro-date" ng-model="form.DateStart" md-placeholder="Enter date"></md-datepicker>
                       </div>
                       <div class="row  pro-info">
                         <div class="col-sm-3">Date To : </div>
-                        <md-datepicker class="col-sm-9 pro-date" ng-model="form.DateTo" md-placeholder="Enter date"></md-datepicker>
+                        <md-datepicker class="col-sm-9 pro-date" ng-model="form.DateEnd" md-placeholder="Enter date"></md-datepicker>
                       </div>
               </fieldset>
           </div>
@@ -23,26 +26,40 @@
           <div class="col-sm-6">
               <fieldset class="form-group form-info" style="padding-left:50px">
                   <legend style="width:150px">Assign & Type</legend>
-                  <div class="dropdown">
-                          <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">
-                              -- Select Member --
-                              <span class="caret"></span>
-                          </button>
-                          <ul class="dropdown-menu">
-                              <li><a href="#">ชื่อคนในทีม1</a></li>
-                              <li><a href="#">ชื่อคนในทีม2</a></li>
-                              <li><a href="#">ชื่อคนในทีม3</a></li>
-                          </ul>
 
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <table class="table table-bordered scroll">
+                        <thead class="add-pro">
+                          <tr>
+                            <th class="pro-value">Name</th>
+                            <th class="pro-check">Select</th>
+                          </tr>
+                        </thead>
+                        <tbody class="add-pro body-add">
+                          <tr ng-repeat="user in team">
+                              <td class="pro-value">{{user.u_name}}</td>
+                              <td class="pro-check" style="text-align:center;">
+                                    <input class="add-check" type="checkbox" ng-model="selectedList[$index]">
+                                    <!-- <span>{{selectedList[$index]}}</span> -->
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="col-sm-6">
+                      <label>Type</label>
+                      <div class="type">
+                        <input class="choice" type="radio" name="type" value="1"> Get Requirement<br>
+                        <input class="choice" type="radio" name="type" value="2"> Confirm Requirement<br>
+                        <input class="choice" type="radio" name="type" value="3"> Build/Testing (ST/SIT)<br>
+                        <input class="choice" type="radio" name="type" value="4"> Deploy<br>
+                        <input class="choice" type="radio" name="type" value="5"> Vacation Leave<br>
+                        <input class="choice" type="radio" name="type" value="6"> Training
+                      </div>
+                    </div>
                   </div>
-                  <div class="type">
-                    <input class="choice" type="radio" name="type" value="1"> Get Requirement<br>
-                    <input class="choice" type="radio" name="type" value="2"> Confirm Requirement<br>
-                    <input class="choice" type="radio" name="type" value="3"> Build/Testing (ST/SIT)<br>
-                    <input class="choice" type="radio" name="type" value="4"> Deploy<br>
-                    <input class="choice" type="radio" name="type" value="5"> Vacation Leave<br>
-                    <input class="choice" type="radio" name="type" value="6"> Training
-                  </div>
+
               </fieldset>
           </div>
 
@@ -51,6 +68,7 @@
         <div class="row row-btn">
           <button type="button" class="btn btn-info" ng-click="">Submit</button>
         </div>
+
     </fieldset>
 
 </div>

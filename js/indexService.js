@@ -26,7 +26,7 @@ myApp.service('indexService', function($http){
       var formData = data;
       var promise = $http({
         method: 'POST',
-        url: baseurl + 'php/request.php',
+        url: baseurl + 'php/assignList.php',
         data: formData
       });
 
@@ -66,6 +66,16 @@ myApp.service('indexService', function($http){
       var promise = $http({
         method: 'GET',
         url: baseurl + 'php/result.php',
+      });
+
+      return promise;
+  };
+
+  this.TeamService = function(teamId){
+      var promise = $http({
+        method: 'POST',
+        url: baseurl + 'php/assignList.php',
+        data: teamId
       });
 
       return promise;

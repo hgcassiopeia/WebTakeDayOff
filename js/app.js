@@ -41,7 +41,26 @@ myApp.config(function($stateProvider,$urlRouterProvider){
       templateUrl: 'template/export.html',
     })
 });
+//===========================Add Project==========================================//
+myApp.controller('addProjectController',function($scope,indexService){
 
+    $scope.checkLogin = function(){
+      $scope.store = JSON.parse(localStorage.getItem('profile'));
+      if($scope.store){
+        $scope.users = $scope.store;
+        indexService.TeamService({'teamId':$scope.users.team_id}).success(function($data){
+          var getData = angular.extend($data);
+          console.log(JSON.stringify(getData));
+          $scope.team = getData.data;
+        });
+      }else{
+        localStorage.removeItem('profile');
+        $location.path('/');
+      }
+    }
+
+});
+//========================Result===================================================//
 myApp.controller('resultController',function($scope,indexService){
   $scope.getResult = function(){
     indexService.ResultService().success(function($data){
@@ -51,7 +70,7 @@ myApp.controller('resultController',function($scope,indexService){
     });
   }
 });
-
+//=======================ViewRequest==============================================//
 myApp.controller('viewRequestController',function($scope,indexService){
 
   $scope.selectedList = {};
@@ -63,7 +82,7 @@ myApp.controller('viewRequestController',function($scope,indexService){
         $scope.listRequest = getData.data;
     });
   }
-
+  //----------------------------Approve---------------------------------------//
   $scope.ApproveSubmit = function(){
 
     $scope.count = [];
@@ -86,7 +105,7 @@ myApp.controller('viewRequestController',function($scope,indexService){
         $scope.getView();
     });
   }
-
+  //------------------------------Reject--------------------------------------//
   $scope.RejectSubmit = function(){
 
     $scope.count = [];
@@ -111,7 +130,7 @@ myApp.controller('viewRequestController',function($scope,indexService){
   }
 
 });
-
+//===============================Request===========================================//
 myApp.controller('requestController',function($scope,indexService,$location){
 
   $scope.DateFrom = new Date();
@@ -120,7 +139,7 @@ myApp.controller('requestController',function($scope,indexService,$location){
   $scope.checkLogin = function(){
     $scope.store = JSON.parse(localStorage.getItem('profile'));
     if($scope.store){
-      $scope.users = $scope.store.id;
+      $scope.users = $scope.store.user_id;
     }else{
       localStorage.removeItem('profile');
       $location.path('/');
@@ -144,7 +163,7 @@ myApp.controller('requestController',function($scope,indexService,$location){
     });
   }
 });
-
+//===================================Login===========================================//
 myApp.controller('loginController',function($rootScope,$scope,$location,indexService){
 
   $rootScope.checkPage = function(){
@@ -159,7 +178,7 @@ myApp.controller('loginController',function($rootScope,$scope,$location,indexSer
     $scope.store = JSON.parse(localStorage.getItem('profile'));
     if($scope.store){
       $rootScope.name = $scope.store.firstname+' '+$scope.store.lastname;
-      $rootScope.userID = $scope.store.id;
+      $rootScope.userID = $scope.store.user_id;
       $rootScope.positionCheck = $scope.store.position_id;;
     }else{
       localStorage.removeItem('profile');
@@ -189,7 +208,7 @@ myApp.controller('loginController',function($rootScope,$scope,$location,indexSer
     localStorage.removeItem('profile');
   }
 });
-
+//=====================================Register======================================//
 myApp.controller('registerController',function($scope,indexService,$location){
 	$scope.registerSubmit = function(){
     indexService.registerService($scope.form).success(function($data){

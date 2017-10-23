@@ -26,3 +26,34 @@
 .choice{
   margin-right: 10px!important;
 }
+
+table.scroll tbody,
+table.scroll thead { display: block; }
+
+table.scroll thead tr th {
+    height: 30px;
+    line-height: 30px;
+    /* text-align: left; */
+}
+
+table.scroll th{
+  text-align:center;
+}
+
+.pro-value{
+  width: 75%!important;
+}
+
+input.add-check{
+  margin: 0 15px 0 15px;
+}
+
+table.scroll tbody {
+    height: 150px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+
+table.scroll tbody td:last-child, thead th:last-child {
+    border-right: none;
+}
