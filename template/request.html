@@ -3,7 +3,7 @@
   <form id="req-form">
     <fieldset class="form-group">
       <legend>Reason</legend>
-      <div class="row">
+      <div class="row" style="margin-left:40px">
         <div class="col-sm-6">
           <div>Date From : </div>
           <md-datepicker ng-model="form.DateFrom" md-placeholder="Enter date"></md-datepicker>
@@ -19,7 +19,11 @@
         <input type="hidden" ng-model="form.User" name="form.User" />
       </div>
 
-      <button type="button" class="btn btn-info" ng-click="requestDayOff()">Button</button>
+      <div class="row">
+        <div class="col-sm-12" style="text-align:center">
+          <button type="button" class="btn btn-info" ng-click="requestDayOff()">Request</button>
+        </div>
+      </div>
     </fieldset>
   </form>
 </div>
