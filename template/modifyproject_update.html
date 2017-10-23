@@ -1,94 +1,82 @@
-﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="container pro-con" ng-controller="modifyProjectController" ng-init="checkLogin()">
+    <fieldset class="form-group pro-field">
 
-<style type="text/css">
-    #divbottom {
-        margin-bottom: 20px auto;
-    }
+        <legend style="width:150px">UPDATE PROJECT</legend>
 
-    #divleft {
-        float: left;
-        clear: both;
-    }
+        <div class="row">
 
-    #divright {
-        float: left;
-        clear: right;
-    }
-</style>
+          <div class="col-sm-6">
+              <fieldset class="form-group form-info" style="padding-left:50px; padding-top:20px">
+                  <legend>Information</legend>
+                      <div class="row  pro-info">
+                        <label class="col-sm-3" for="projectname">Project Name :</label>
+                        <input class="col-sm-9 pro-name" type="text" ng-model="form.ProName">
+                      </div>
+                      <div class="row  pro-info">
+                        <div class="col-sm-3">Date From : </div>
+                        <md-datepicker class="col-sm-9 pro-date" ng-model="form.DateStart" md-placeholder="Enter date"></md-datepicker>
+                      </div>
+                      <div class="row  pro-info">
+                        <div class="col-sm-3">Date To : </div>
+                        <md-datepicker class="col-sm-9 pro-date" ng-model="form.DateEnd" md-placeholder="Enter date"></md-datepicker>
+                      </div>
+              </fieldset>
+          </div>
 
+          <div class="col-sm-6">
+              <fieldset class="form-group form-info" style="padding-left:50px">
+                  <legend style="width:150px">Assign & Type</legend>
 
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <table class="table table-bordered scroll" style="margin-bottom:0">
+                        <thead class="add-pro">
+                          <tr>
+                            <th class="pro-value">Name</th>
+                            <th class="pro-check">Select</th>
+                          </tr>
+                        </thead>
+                        <tbody class="add-pro body-add">
+                          <tr ng-repeat="user in team">
+                              <td class="pro-value">{{user.u_name}}</td>
+                              <td class="pro-check" style="text-align:center;">
+                                    <input class="add-check" type="checkbox" ng-model="selectedList[$index]">
+                                    <!-- <span>{{selectedList[$index]}}</span> -->
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <span style="color:#ff6347">*** Can Scroll See More Team ***</span>
+                    </div>
+                    <div class="col-sm-6">
+                      <label>Type</label>
+                      <div class="type">
+                        <input class="choice" type="radio" name="type" value="1" ng-model="form.type"> Get Requirement<br>
+                        <input class="choice" type="radio" name="type" value="2" ng-model="form.type"> Confirm Requirement<br>
+                        <input class="choice" type="radio" name="type" value="3" ng-model="form.type"> Build/Testing (ST/SIT)<br>
+                        <input class="choice" type="radio" name="type" value="4" ng-model="form.type"> Deploy<br>
+                        <input class="choice" type="radio" name="type" value="5" ng-model="form.type"> Vacation Leave<br>
+                        <input class="choice" type="radio" name="type" value="6" ng-model="form.type"> Training
+                      </div>
+                    </div>
+                  </div>
 
-<div class="container">
-    <h2>ADD PROJECT</h2>
-    <fieldset>
+              </fieldset>
+          </div>
 
-
-
-        <div id="divleft">
-            <fieldset style="margin-top:50px; margin-left:50px; margin-right:350px;">
-                <legend>Information</legend>
-                
-                <!--โชว์ชื่อโปรเจคที่เลือกมาจากหน้า Modify Project-->
-                <div class="form-group">
-                    <label for="projectname" >Project Name :</label>
-                        <input type="text" class="form-control" name="text" disabled>  
-                </div>
-               
-                <!--Date From ใส่ปฎิธินให้หน่อยน้า-->
-                <div class="form-group">
-                    <label for="datefrom">Date From :</label>
-                    <input type="text" class="form-control" id="usr">
-                </div>
-               
-                <!--Date To ใส่ปฎิธินให้หน่อยน้า-->
-                <div class="form-group">
-                    <label for="dateto">Date To :</label>
-                    <input type="text" class="form-control" id="usr">
-                </div>
-
-
-            </fieldset>
         </div>
 
-        <div id="divright">
-            <fieldset style="margin-top:50px; margin-left:50px;">
-                <legend>Assign & Type</legend>
-                <div class="dropdown">
-                    <div style="margin-right:50px;">
-                        <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">
-                            -- Select Member --
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">ชื่อคนในทีม1</a></li>
-                            <li><a href="#">ชื่อคนในทีม2</a></li>
-                            <li><a href="#">ชื่อคนในทีม3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <br />
-                <br />
-                <input type="radio" name="type" value="Get Requirement"> Get Requirement<br>
-                <input type="radio" name="type" value="Confirm Requirement"> Confirm Requirement<br>
-                <input type="radio" name="type" value="Build/Testing"> Build/Testing (ST/SIT)<br>
-                <input type="radio" name="type" value="Deploy"> Deploy<br>
-                <input type="radio" name="type" value="Vacation"> Vacation Leave<br>
-                <input type="radio" name="type" value="Training"> Training
-
-            </fieldset>
-
+        <div class="row">
+          <div class="col-sm-6" style="text-align:right;">
+              <!--กด update จะไปหน้า modifymember_update-->
+              <button type="button" class="btn btn-info" ng-click="updateProjectSubmit()">Save</button>
+          </div>
+          <div class="col-sm-6" style="text-align:left;">
+            <!--พอกด delete จะมีpop-upขึ้นมาถามก่อนลบ-->
+            <button type="button" class="btn btn-danger" ng-click="cancelPro()">Cancel</button>
+          </div>
         </div>
 
     </fieldset>
 
-        <div id="divbottom" style="margin-bottom:5px;">
-            <center>
-                <!--กด save จะอัพเดทข้อมูลในดาต้าเบส-->
-                <input type="submit" class="btn" value="submit" style="margin-right:80px; margin-top:50px;">
-            </center>
-        </div>
-
-   
 </div>

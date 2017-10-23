@@ -28,9 +28,17 @@ myApp.config(function($stateProvider,$urlRouterProvider){
       url: '/modmem',
       templateUrl: 'template/modifymember.html',
     })
+    .state('modmemdetail',{
+      url: '/modmemdetail',
+      templateUrl: 'template/modifymember_update.html'
+    })
     .state('modpro',{
       url: '/modpro',
       templateUrl: 'template/modifyproject.html',
+    })
+    .state('modprodetail',{
+      url: '/modprodetail',
+      templateUrl: 'template/modifyproject_update.html'
     })
     .state('addpro',{
       url: '/addpro',
@@ -40,6 +48,41 @@ myApp.config(function($stateProvider,$urlRouterProvider){
       url: '/export',
       templateUrl: 'template/export.html',
     })
+});
+
+//===========================Modify Member========================================//
+myApp.controller('modifyMemberController',function($scope,$location,indexService){
+    $scope.updateMemberSubmit = function(){
+      $location.path('/modmemdetail');
+    }
+    $scope.cancelMem = function(){
+      $location.path('/modmem');
+    }
+});
+//===========================Modify Project=======================================//
+myApp.controller('modifyProjectController',function($scope,$location,indexService){
+
+    $scope.checkLogin = function(){
+      $scope.store = JSON.parse(localStorage.getItem('profile'));
+      if($scope.store){
+        $scope.users = $scope.store;
+        indexService.TeamService({'teamId':$scope.users.team_id}).success(function($data){
+          var getData = angular.extend($data);
+          // console.log(JSON.stringify(getData));
+          $scope.team = getData.data;
+        });
+      }else{
+        localStorage.removeItem('profile');
+        $location.path('/');
+      }
+    }
+
+    $scope.updateProjectSubmit = function(){
+      $location.path('/modprodetail');
+    }
+    $scope.cancelPro = function(){
+      $location.path('/modpro');
+    }
 });
 //===========================Add Project==========================================//
 myApp.controller('addProjectController',function($scope,indexService){
@@ -83,6 +126,7 @@ myApp.controller('addProjectController',function($scope,indexService){
                 console.log(JSON.stringify(getData));
                 if(getData.data == true){
                   $scope.form = "";
+                  alert(getData.status);
                 }
           });
         }else{
